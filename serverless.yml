@@ -1,0 +1,54 @@
+service:
+  name: init-typescript
+
+plugins:
+  - serverless-webpack
+  - serverless-offline
+  - serverless-localstack
+
+package:
+  excludeDevDependencies: false
+  individually: true
+  exclude:
+    - node_modules/**
+    - .git/
+    - .gitignore
+    - package.json
+    - aws-sdk
+  include:
+    - dist/
+
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: us-east-1
+  stage: dev
+  versionFunctions: false
+  environment: ${file(config-${self:custom.stage}.yml):environment}
+
+functions:
+  index:
+    handler: src/api/handler.index
+
+custom:
+  stage: ${opt:stage, self:provider.stage}
+  webpack:
+    webpackConfig: ./webpack.config.js
+    includeModules:
+      packagePath: './package.json'
+      forceInclude:
+        - pg
+    packager: 'yarn'
+  localstack:
+    debug: true
+    stages:
+      # list of stages for which the plugin should be enabled
+      - local
+    host: http://localhost
+    lambda:
+      # Enable this flag to improve performance
+      mountCode: True
+    docker:
+      # Enable this flag to run "docker ..." commands as sudo
+      sudo: False

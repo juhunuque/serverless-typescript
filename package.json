@@ -1,0 +1,50 @@
+{
+  "name": "init-typescript",
+  "version": "1.0.0",
+  "description": "Serverless webpack example using Typescript",
+  "main": "src/api/handler.js",
+  "scripts": {
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "test": "jest --colors --coverage",
+    "local": "./local.sh",
+    "offline": "./node_modules/serverless/bin/serverless offline",
+    "package": "./node_modules/serverless/bin/serverless package"
+  },
+  "repository": "git@github.com:juhunuque/serverless-typescript.git",
+  "dependencies": {
+    "@types/reflect-metadata": "^0.1.0",
+    "class-validator": "^0.11.0",
+    "pg": "^7.17.1",
+    "reflect-metadata": "^0.1.13",
+    "source-map-support": "^0.5.10",
+    "typeorm": "^0.2.22",
+    "typescript": "^3.7.5",
+    "uuid": "^3.3.2",
+    "winston": "3.1.0"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.17",
+    "@types/jest": "^24.9.0",
+    "@types/node": "^10.12.18",
+    "@typescript-eslint/eslint-plugin": "^2.16.0",
+    "@typescript-eslint/parser": "^2.16.0",
+    "aws-cli": "0.0.2",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "fork-ts-checker-webpack-plugin": "^3.0.1",
+    "jest": "^24.9.0",
+    "prettier": "^1.19.1",
+    "serverless": "^1.61.2",
+    "serverless-localstack": "^0.4.24",
+    "serverless-offline": "^5.12.1",
+    "serverless-webpack": "^5.2.0",
+    "ts-jest": "^24.3.0",
+    "ts-loader": "^5.3.3",
+    "webpack": "^4.29.0",
+    "webpack-node-externals": "^1.7.2",
+    "winston": "3.1.0"
+  },
+  "author": "The serverless webpack authors (https://github.com/elastic-coders/serverless-webpack)",
+  "license": "MIT"
+}
